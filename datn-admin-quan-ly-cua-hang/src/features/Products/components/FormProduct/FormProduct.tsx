@@ -63,19 +63,6 @@ const FormProduct = () => {
     if (values.sale === undefined) {
       values.sale = 0
     }
-    // if (values.sizeDefault === undefined && values.size.length === 0) {
-    //   message.error('Phải có ít nhất 1 size')
-    //   return
-    // }
-    /* kiểm tra xem sale có cao hơn giá size không */
-    // if (values.size !== undefined) {
-    //   for (const sizeItem of values.size) {
-    //     if (sizeItem.price < values.sale) {
-    //       message.error('Giá sale không được cao hơn giá size')
-    //       return
-    //     }
-    //   }
-    // }
 
     if (productId && productEdit) {
       const data = {

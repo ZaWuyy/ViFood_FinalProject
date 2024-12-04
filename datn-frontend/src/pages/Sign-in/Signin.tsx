@@ -64,7 +64,7 @@ const Signin = () => {
         <div className='flex items-center justify-center h-full'>
           <div className='content background-content bg-white w-[90vw] md:w-[500px] h-[600px] mx-6 md:px-[100px] py-6 flex justify-center items-center flex-col rounded'>
             <div className='logo'>
-              <img src='https://png.pngtree.com/png-clipart/20230801/original/pngtree-vegan-icon-picture-image_7816412.png' alt='' className='w-[50px] mb-5' />
+              <img src="/logo_th.png" alt='' className='w-[230px] mb-5' />
             </div>
             <form action='' className='flex flex-col w-full' onSubmit={handleSubmit(onLogin)}>
               <Input
@@ -83,10 +83,10 @@ const Signin = () => {
                 register={register}
                 typeInput='password'
               />
-              <div className='text-right mt-4 font-bold text-[#d4b774] text-sm'>
+              <div className='text-right mt-4 font-bold text-[#028336] text-sm'>
                 <Link to={'/forgot-password'}>Quên mật khẩu?</Link>
               </div>
-              <Button type='auth' size='large' shape='circle'>
+              <Button type='auth' size='large' shape='circle' >
                 Đăng nhập
               </Button>
               <div className='flex justify-center gap-1'>
@@ -102,7 +102,7 @@ const Signin = () => {
               <div className='gap-x-2 flex items-center justify-center my-5 text-sm'>
                 <div>Bạn chưa có tài khoản?</div>
                 <div className=' font-semibold'>
-                  <Link to='/signup' className='text-[#d4b774]'>
+                  <Link to='/signup' className='text-[#028336]'>
                     Tạo tài khoản
                   </Link>
                 </div>

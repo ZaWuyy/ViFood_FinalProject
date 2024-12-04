@@ -19,11 +19,12 @@ const NewProducts = () => {
     <section className='pt-[50px] pb-[60px] mx-auto sm:w-full  max-w-[1140px]'>
       <div className='title flex flex-col items-center'>
         <div className='sub-title'>
-          <h4 className='text-[#d3b673] text-[22px] mb-[5px] font-bold '>Sữa và ngũ cốc thuần chay</h4>
+          <h4 className='text-[#d3b673] text-[22px] mb-[5px] font-bold '>Sản Phẩm Chay - Sạch</h4>
         </div>
         <div className='main-title'>
+
           <h2 className='text-3xl md:text-4xl text-center text-black px-[50px] uppercase font-bold mb-2'>
-            Sản phẩm nổi bật
+            MỚI NHẤT <i className="fa-solid fa-fire" style={{ color: '#ff2600' }}></i>
           </h2>
         </div>
         <div className='bg_title'></div>

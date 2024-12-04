@@ -49,7 +49,7 @@ const Signup = () => {
         <div className='h-full flex justify-center items-center'>
           <div className='content background-content bg-white w-[90vw] md:w-[500px] h-[600px] px-6 md:px-[100px] py-6 flex justify-center items-center flex-col rounded'>
             <div className='logo'>
-              <img src='https://png.pngtree.com/png-clipart/20230801/original/pngtree-vegan-icon-picture-image_7816412.png' alt='' className='w-[50px] mb-5' />
+              <img src='/logo_th.png' alt='' className='w-[230px] mb-5' />
             </div>
             <form action='' className='flex flex-col w-full' onSubmit={handleSubmit(onRegister)}>
               <Input
@@ -87,7 +87,7 @@ const Signup = () => {
               </Button>
               <div className='flex gap-x-2 justify-center items-center my-5 text-sm'>
                 <div>Bạn đã có tài khoản?</div>
-                <div className='font-semibold text-[#d4b774]'>
+                <div className='font-semibold text-[#028336]'>
                   <Link to='/signin'>Đăng nhập</Link>
                 </div>
               </div>

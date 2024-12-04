@@ -80,16 +80,16 @@ const MyCart = () => {
           <div className='flex items-center justify-start my-5 cart-ss2'>
             <img className='img-toco h-[40px] pr-2' src='https://png.pngtree.com/png-clipart/20230801/original/pngtree-vegan-icon-picture-image_7816412.png' />
             <span className='pr-2 cart-ss2-one'>x</span>
-            <span className='cart-ss2-two pr-2 text-[#8a733f]'>{quantity}</span>
+            <span className='cart-ss2-two pr-2 text-[#028336]'>{quantity}</span>
             <span className='pr-2 cart-ss2-three'>=</span>
-            <span className='cart-ss2-four text-[#8a733f]'>{formatCurrency(total)}</span>
+            <span className='cart-ss2-four text-[#028336]'>{formatCurrency(total)}</span>
           </div>
           <div className='cart-ss3'>
             {/* <Link to="checkout"> */}
             <button
               disabled={items.length > 0 ? false : true}
               onClick={handleCheckUser}
-              className={`bg-[#d8b979] text-white text-center rounded-xl py-1 w-full ${
+              className={`bg-[#028336] text-white text-center rounded-xl py-1 w-full ${
                 items.length <= 0 && 'bg-opacity-50'
               }`}
             >

@@ -25,7 +25,7 @@ const ForgotPassword = () => {
           <div className='flex items-center justify-center h-full'>
             <div className='content background-content bg-white w-[90vw] md:w-[500px] h-[600px] mx-6 md:px-[100px] py-6 flex justify-center items-center flex-col rounded'>
               <div className='logo'>
-                <img src='https://png.pngtree.com/png-clipart/20230801/original/pngtree-vegan-icon-picture-image_7816412.png' alt='' className='w-[50px] mb-5' />
+                <img src='/logo_th.png' alt='' className='w-[50px] mb-5' />
               </div>
               <Form<{ email: string }> onFinish={handleSubmitForm} className='flex flex-col w-full'>
                 <Form.Item
