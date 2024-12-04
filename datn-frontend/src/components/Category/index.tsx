@@ -1,16 +1,16 @@
-import { Divider, List, ListItem, ListItemText, Paper, Popover, Stack, Typography } from '@mui/material'
+import { Divider, List, ListItem, ListItemText, Paper, Popover, Stack, Typography, IconButton } from '@mui/material'
 import { Fragment, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-
 import { SerializedError } from '@reduxjs/toolkit'
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query'
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaRedo } from 'react-icons/fa'
 import { IQueryConfig } from '../../hook/useQueryConfig'
 import { ICategory } from '../../interfaces/category.type'
 import NotFound from '../../pages/Not-Found/NotFound'
 import { getIdCate } from '../../store/slices/categories'
 import { savePage } from '../../store/slices/product.slice'
 import SKProduct from '../Skeleton/SKProduct'
+import {  useNavigate } from 'react-router-dom'
 
 interface SidebarCateProps {
   categories: ICategory[] | undefined
@@ -24,6 +24,7 @@ const SidebarCate = ({ categories, error, isLoading }: SidebarCateProps) => {
   const dispatch = useAppDispatch()
   const [selectedCategory, setSelectedCategory] = useState('')
 
+  const navigate = useNavigate()
   const { products } = useAppSelector((state) => state.persistedReducer.products)
 
   const handleClick = (event: any) => {
@@ -32,6 +33,14 @@ const SidebarCate = ({ categories, error, isLoading }: SidebarCateProps) => {
 
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  // Hàm reload lại trang, sẽ reset lại danh mục và sản phẩm
+  const handleReload = () => {
+    dispatch(getIdCate(''))  // Reset danh mục
+    setSelectedCategory('')  // Reset selectedCategory
+    dispatch(savePage(1))  // Reset lại trang đầu tiên
+    navigate('/products')  // Chuyển hướng về trang sản phẩm
   }
 
   if (error) return <NotFound />
@@ -45,18 +54,16 @@ const SidebarCate = ({ categories, error, isLoading }: SidebarCateProps) => {
   return (
     <>
       <div className='sidebar select-none shrink-0 w-[300px] bg-[#fff] text-[14px] rounded-sm mx-[16px] pb-[12px] h-fit hidden lg:block'>
-        <div className='border border-transparent border-b-[#f1f1f1] uppercase px-4 py-2'>Danh mục</div>
+        <div className='flex justify-between items-center border border-transparent border-b-[#f1f1f1] uppercase px-4 py-2'>
+          <div>Danh mục</div>
+          {/* Nút reload */}
+          <IconButton onClick={handleReload}>
+            <FaRedo />
+          </IconButton>
+        </div>
         <div className=''>
           <div
             className='block'
-            // to={{
-            //   pathname: '/products',
-            //   search: createSearchParams({
-            //     ...queryConfig,
-            //     searchName: '',
-            //     c: 'all'
-            //   }).toString()
-            // }}
           >
             <div
               onClick={() => {
@@ -77,13 +84,6 @@ const SidebarCate = ({ categories, error, isLoading }: SidebarCateProps) => {
               <div
                 key={category._id}
                 className='block'
-                // to={{
-                //   pathname: '/products',
-                //   search: createSearchParams({
-                //     ...queryConfig,
-                //     c: category._id as string
-                //   }).toString()
-                // }}
               >
                 <div
                   onClick={() => {
@@ -179,7 +179,7 @@ const SidebarCate = ({ categories, error, isLoading }: SidebarCateProps) => {
                           </Typography>
                         </Fragment>
                       }
-                      onClick={() => dispatch(getIdCate({ idCate: category._id, nameCate: category.name }))}
+                      onClick={() => dispatch(getIdCate({ idCate: category._id, nameCate: category.name }))} 
                     />
                   </ListItem>
                   <Divider sx={{ marginLeft: '16px' }} />

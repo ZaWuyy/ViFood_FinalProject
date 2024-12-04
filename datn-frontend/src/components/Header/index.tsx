@@ -15,7 +15,7 @@ import './Header.scss'
 import { ClientSocket } from '../../socket'
 import { useUpdateNotifitoReadByidMutation } from '../../api/notifications'
 
-const Header = () => {
+const Header = ({ hideLogo = false, bgColor = 'bg-white' }) => {
   const dispatch = useAppDispatch()
   const queryConfig = useQueryConfig()
   const [notification, setNotification] = useState<any[]>([])
@@ -64,34 +64,39 @@ const Header = () => {
   }, [])
 
   return (
-    <div className='header flex items-center justify-between gap-2 px-4 py-2 select-none sticky top-0 w-full bg-white z-10'>
-      <div className='logo lg:block hidden'>
-        <Link to={'/'}>
-          <img src='/lgc.png' alt='' className='object-cover w-10 h-10' />
-        </Link>
-      </div>
-      <form onSubmit={onSubmitSearch} className='search lg:flex items-center justify-center w-full'>
+    <div className={`header flex items-center justify-between gap-2 px-4 py-2 select-none sticky top-0 w-full ${bgColor} z-10`}>
+      {/* Logo */}
+      {!hideLogo && (
+        <div className="logo lg:block hidden">
+          <Link to={'/'}>
+            <img src='/lgc.png' alt='' className='object-cover w-10 h-10' />
+          </Link>
+        </div>
+      )}
+
+      {/* Search Form */}
+      <form onSubmit={onSubmitSearch} className="search lg:flex items-center justify-center w-full">
         <div>
           <input
-            className=' p-0 outline-none px-2 block focus:bg-gray-50 w-full bg-[#fbfbfb] h-[32px] text-[14px] rounded-2xl focus:outline-none border-none placeholder: pl-9 lg:mx-auto lg:w-[35rem] border focus:ring-0'
-            placeholder='Tìm kiếm sản phẩm...'
+            className="p-0 outline-none px-2 block focus:bg-gray-50 w-full bg-[#fbfbfb] h-[32px] text-[14px] rounded-2xl focus:outline-none border-none placeholder: pl-9 lg:mx-auto lg:w-[35rem] border focus:ring-0"
+            placeholder="Tìm kiếm sản phẩm..."
             {...register('name')}
             autoFocus={true}
-            autoComplete='off'
+            autoComplete="off"
           />
-
-          <AiOutlineSearch className='text-xl ml-2 text-[#bebec2] absolute top-[18px] z-40' />
+          <AiOutlineSearch className="text-xl ml-2 text-[#bebec2] absolute top-[18px] z-40" />
         </div>
       </form>
+
+      {/* Notifications and User Avatar */}
       {user?.avatar ? (
-        <div className='info_notifi flex items-center gap-x-5'>
-          <Tooltip title='Thông báo' arrow={false} zIndex={11}>
+        <div className="info_notifi flex items-center gap-x-5">
+          <Tooltip title="Thông báo" arrow={false} zIndex={11}>
             <Popover
-              // onOpenChange={() => notification.length > 0 && setNotification([])}
-              className='notification cursor-pointer'
-              title='Thông báo'
-              placement='bottomRight'
-              trigger='click'
+              className="notification cursor-pointer"
+              title="Thông báo"
+              placement="bottomRight"
+              trigger="click"
               getPopupContainer={(trigger: any) => trigger?.parentNode}
               content={
                 <>
@@ -99,17 +104,15 @@ const Header = () => {
                     notification?.map((item, index) => (
                       <div
                         key={index}
-                        className='py-2 px-2 group hover:bg-[#d3b673] rounded flex items-center gap-x-2'
+                        className="py-2 px-2 group hover:bg-[#d3b673] rounded flex items-center gap-x-2"
                         title={item.content}
                       >
-                        <span className='inline-block w-[10px] h-[10px] bg-[#d3b673] rounded-full group-hover:bg-white'></span>
+                        <span className="inline-block w-[10px] h-[10px] bg-[#d3b673] rounded-full group-hover:bg-white"></span>
                         <Link
                           onClick={() => {
                             handleUpdateNotification(item._id)
                           }}
-                          className='group-hover:!text-white block'
-                          // target='_blank'
-                          // rel='noopener noreferrer'
+                          className="group-hover:!text-white block"
                           to={`/account-layout/my-order/${item.idOrder}`}
                         >
                           {item.content}
@@ -118,8 +121,8 @@ const Header = () => {
                     ))
                   ) : (
                     <Empty
-                      className='flex items-center flex-col'
-                      image='https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'
+                      className="flex items-center flex-col"
+                      image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
                       imageStyle={{ height: 200 }}
                       description={<span>Hiện tại bạn không có thông báo nào!</span>}
                     />
@@ -127,26 +130,25 @@ const Header = () => {
                 </>
               }
             >
-              <div className='relative'>
+              <div className="relative">
                 {notification.length > 0 && (
-                  <span className='absolute left-2 -top-[6px] bg-red-600 text-white text-xs rounded-full w-max h-[15px] px-1 flex items-center justify-center'>
+                  <span className="absolute left-2 -top-[6px] bg-red-600 text-white text-xs rounded-full w-max h-[15px] px-1 flex items-center justify-center">
                     <span>{notification.length}</span>
                   </span>
                 )}
-
-                <FaBell className='text-xl' />
+                <FaBell className="text-xl" />
               </div>
             </Popover>
           </Tooltip>
-          <Tooltip title='Tài khoản' arrow={false}>
-            <Link to='/account-layout'>
-              <img className='w-12 md:w-9 md:h-9 rounded-full mr-[8px] object-cover ' src={user?.avatar} alt='' />
+          <Tooltip title="Tài khoản" arrow={false}>
+            <Link to="/account-layout">
+              <img className="w-12 md:w-9 md:h-9 rounded-full mr-[8px] object-cover" src={user?.avatar} alt="" />
             </Link>
           </Tooltip>
         </div>
       ) : (
-        <div className='text-sm px-[15px] py-[6px] bg-[#d8b979] text-white text-center rounded-3xl'>
-          <Link to='/signin' className='w-max block'>
+        <div className="text-sm px-[15px] py-[6px] bg-[#d8b979] text-white text-center rounded-3xl">
+          <Link to="/signin" className="w-max block">
             Đăng nhập
           </Link>
         </div>

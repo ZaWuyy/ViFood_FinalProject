@@ -8,6 +8,8 @@ import { RootState } from '../../store/store'
 import styles from './HeaderHomePage.module.scss'
 import { useGetAllBlogCategoryQuery } from '../../api/NewBlogs'
 import { useSelector } from 'react-redux'
+import { Tooltip } from 'flowbite-react'
+import Header from '../Header'
 
 const HeaderHomePage = () => {
   const [isHeaderFixed, setHeaderFixed] = useState(false)
@@ -40,6 +42,8 @@ const HeaderHomePage = () => {
     menuRef.current?.classList.toggle('show__menu')
     overlayRef.current?.classList.toggle('hidden')
   }
+
+  
 
   return (
     <header
@@ -171,9 +175,10 @@ const HeaderHomePage = () => {
         </div>
         <div className='right '>
           {user?.avatar ? (
-            <div className='hidden w-8 h-8 rounded-[50%] md:flex items-center justify-center bg-[#d3b673] text-white'>
-              <FaSearch />
-            </div>
+           <>
+          <Header hideLogo={true} bgColor="transparent" />
+
+           </>
           ) : (
             <Link
               to='/signin'
@@ -181,7 +186,8 @@ const HeaderHomePage = () => {
             >
               Đăng nhập
             </Link>
-          )}
+          )} 
+         
 
           <div className='block md:hidden text-white text-2xl cursor-pointer' onClick={toggleMenu}>
             <FaBars />
