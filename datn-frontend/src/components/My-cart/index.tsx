@@ -89,7 +89,7 @@ const MyCart = () => {
             <button
               disabled={items.length > 0 ? false : true}
               onClick={handleCheckUser}
-              className={`bg-[#028336] text-white text-center rounded-xl py-1 w-full ${
+              className={`bg-[#028336] hover:bg-[#80bb35] text-white text-center rounded-xl py-1 w-full ${
                 items.length <= 0 && 'bg-opacity-50'
               }`}
             >

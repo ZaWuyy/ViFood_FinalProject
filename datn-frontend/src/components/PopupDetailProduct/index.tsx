@@ -185,7 +185,7 @@ const PopupDetailProduct = ({ showPopup, togglePopup, product }: PopupDetailProd
                     onClick={() => {
                       handleAddToCart()
                     }}
-                    className='btn-price bg-[#d8b979] text-white px-5 h-8 rounded-[32px] leading-[32px] md:ml-[10px] text-sm'
+                    className='btn-price bg-[#028336] hover:bg-[#80bb35] text-white px-5 h-8 rounded-[32px] leading-[32px] md:ml-[10px] text-sm'
                   >
                     Thêm vào giỏ
                   </button>

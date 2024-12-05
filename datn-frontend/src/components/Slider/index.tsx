@@ -55,7 +55,7 @@ const Sliders = () => {
                 <div className='flex items-center justify-center'>
                   <Link
                     to='/products'
-                    className=' hover:bg-[#d3b673] w-[166px] h-full  max-w-[166px] text-[16px] uppercase py-[10px] text-white border border-white px-[15px] inline-block font-semibold'
+                    className=' hover:bg-[#028336] w-[166px] h-full  max-w-[166px] text-[16px] uppercase py-[10px] text-white border border-white px-[15px] inline-block font-semibold'
                   >
                     Đặt hàng ngay
                   </Link>
@@ -73,7 +73,7 @@ const Sliders = () => {
               <div className='flex items-center justify-center'>
                 <Link
                   to='/products'
-                  className=' hover:bg-[#d3b673] w-[166px] h-full  max-w-[166px] text-[16px] uppercase py-[10px] text-white border border-white px-[15px] inline-block font-semibold'
+                  className=' hover:bg-[#028336] w-[166px] h-full  max-w-[166px] text-[16px] uppercase py-[10px] text-white border border-white px-[15px] inline-block font-semibold'
                 >
                   Đặt hàng ngay
                 </Link>

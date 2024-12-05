@@ -77,9 +77,6 @@ const FooterHomePage = () => {
                   <Link to='/'>Giới thiệu </Link>
                 </li>
                 <li className='mb-2 text-sm'>
-                  <Link to='/'>Nhượng quyền</Link>
-                </li>
-                <li className='mb-2 text-sm'>
                   <Link to='/'>Tin tức khuyến mại</Link>
                 </li>
                 <li className='mb-2 text-sm'>
@@ -87,9 +84,6 @@ const FooterHomePage = () => {
                 </li>
                 <li className='mb-2 text-sm'>
                   <Link to='/'>Quy định chung</Link>
-                </li>
-                <li className='mb-2 text-sm'>
-                  <Link to='/'>TT liên hệ & ĐKKD</Link>
                 </li>
               </ul>
             </div>

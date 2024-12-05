@@ -117,7 +117,6 @@ const MyOrderDetail = () => {
                     <div>
                       <h4 className='title mb-2 text-[#866312] text-sm'>{item?.product.name}</h4>
                       <div className='flex flex-col gap-y-1'>
-                        <span className='text-[#866312] text-sm'>Size: {item?.size?.name}</span>
                         {item && item?.toppings.length > 0 && (
                           <span className='text-sm text-[#866312]'>
                             Toppings:{' '}

@@ -19,7 +19,7 @@ const Button = ({ children, type, size, shape, style, onClick, disabled }: Props
       ${type === 'auth' || type === 'checkout' || type === 'paying' || !type ? 'text-white' : ''}
       ${type === 'auth' || type === 'checkout' || !type ? 'uppercase' : 'capitalize'}
       ${type === 'checkout' && 'bg-[#ee4d2d]'}
-      ${type === 'keep-buying' && 'border border-[#028336] bg-[#ffffff] text-[#028336]'}
+      ${type === 'keep-buying' && 'border border-[#028336] bg-[#028336] text-[#ffffff]'}
       ${type === 'paying' && 'border border-[#028336] bg-[#028336] rounded-[30px] h-[30px] flex items-center '}
       ${size === 'small' && 'py-[6px] px-[15px] '}
       ${size === 'large' && 'w-full font-semibold px-[5px] py-[10px] mt-6 btn-shadow '}
