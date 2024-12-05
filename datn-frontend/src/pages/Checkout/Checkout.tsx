@@ -143,7 +143,7 @@ const Checkout = () => {
 
   const moneyShipping = useMemo(() => {
     if (pickGapStore.value) {
-      return pickGapStore.value > 30000 || pickGapStore.value <= 5000 ? 0 : Math.round(pickGapStore.value * 2.5)
+      return pickGapStore.value > 300000 || pickGapStore.value <= 5000 ? 0 : Math.round(pickGapStore.value * 2.5)
     }
     return 0
   }, [pickGapStore])
@@ -166,7 +166,7 @@ const Checkout = () => {
   }, [moneyPromotion, moneyShipping, totalMoneyCheckout])
 
   const handleFormInfoCheckout = handleSubmit((data) => {
-    if (Number(pickGapStore.value) > 30000) {
+    if (Number(pickGapStore.value) > 300000) {
       message.error('Khoảng cách quá xa không thể giao hàng', 2)
     } else {
       const dataForm: IOrderCheckout = {
@@ -373,7 +373,7 @@ const Checkout = () => {
               <div className=' flex items-center justify-between'>
                 <div className='text-sm'>
                   <p>
-                    Số lượng cốc: <span className='font-bold'>{totalQuantity}</span> cốc
+                    Số lượng sản phẩm: <span className='font-bold'>{totalQuantity}</span> sản phẩm
                   </p>
                 </div>
                 <div className='flex items-center py-1 text-sm'>

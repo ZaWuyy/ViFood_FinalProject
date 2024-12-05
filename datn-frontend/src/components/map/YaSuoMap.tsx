@@ -13,14 +13,15 @@ interface LngLat {
 
 const List: ListStore[] = [
   {
-    highName: 'Trường Cao đẳng FPT Polytechnic',
-    name: 'Trường Cao đẳng FPT Polytechnic, Tòa nhà FPT Polytechnic, Trịnh Văn Bô, Phương Canh, Nam Từ Liêm, Hà Nội',
+    highName: 'Trường Sư phạm Kỹ thuật TP HCM',
+    name: 'Trường Sư phạm Kỹ thuật TP HCM, Khu phố 6, Linh Trung, Thủ Đức, TP Hồ Chí Minh',
     geoLocation: {
-      lat: 21.038338774000067,
-      lng: 105.74712340900004
+      lat: 10.854528,  // Vĩ độ mới
+      lng: 106.789888  // Kinh độ mới
     }
   }
-]
+];
+
 
 interface Props {
   setGapStore?: React.Dispatch<React.SetStateAction<ListStore[]>>
