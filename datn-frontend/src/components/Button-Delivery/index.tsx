@@ -23,7 +23,7 @@ const ButtonDelivery = () => {
         {open && <SupportBot showDrawer={showDrawer} />}
       </div>
       <a href='/products'>
-        <img src='/button_delivery.png' className={`${styles.btn_delivery_img}`} alt='' />
+        <img src='/button_basket.png' className={`${styles.btn_delivery_img}`} alt='' />
       </a>
     </div>
   )
